@@ -104,7 +104,7 @@ function createReport(server, params, reportName, fileName, operation, printRepo
 			operation.op_end = new Date();
 			operation.op_status = globals.OpStatus.ERROR;
 			operation.op_message = operation.operationlog_to_operationtype.descrizione + ': errore durante l\'esportazione dei dati';
-			operation.op_progress = 0;
+			operation.op_progress = 100;
 		}
 		
 		return false;
