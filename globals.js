@@ -114,7 +114,20 @@ function createReport(server, params, reportName, fileName, operation, printRepo
 		// always write in the log table
 		databaseManager.commitTransaction();
 		
-		var retObj = {status : operation};
+		/** @type {{statusCode:Number, returnValue:Object, message:String, operationId:String, 
+        operationHash:String, status:Number, start:Date, end:Date, progress:Number, lastProgress:Date}} */
+		var retObj = {
+						statusCode : HTTPStatusCode.OK,
+						returnValue : true,
+						message : operation.op_message,
+						operationId : operation.op_id,
+						operationHash : operation.op_hash,
+						status : operation.op_status,
+						start : operation.op_start,
+						end : operation.op_end,
+						progress : operation.op_progress,
+						lastProgress : operation.op_lastprogress
+		};
 		forms.mao_history.checkStatusCallback(retObj);
 		forms.mao_history.operationDone(retObj);
 	}
@@ -174,7 +187,20 @@ function createReportWithFoundset(fs, reportParams, reportName, fileName, operat
 		// always write in the log table
 		databaseManager.commitTransaction();
 		
-		var retObj = {status : operation};
+		/** @type {{statusCode:Number, returnValue:Object, message:String, operationId:String, 
+        operationHash:String, status:Number, start:Date, end:Date, progress:Number, lastProgress:Date}} */
+        var retObj = {
+				statusCode : HTTPStatusCode.OK,
+				returnValue : true,
+				message : operation.op_message,
+				operationId : operation.op_id,
+				operationHash : operation.op_hash,
+				status : operation.op_status,
+				start : operation.op_start,
+				end : operation.op_end,
+				progress : operation.op_progress,
+				lastProgress : operation.op_lastprogress
+				};
 		forms.mao_history.checkStatusCallback(retObj);
 		forms.mao_history.operationDone(retObj);
 	}
